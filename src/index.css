@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Clean White Base */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+
+    /* Cards - Pure white with subtle warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Primary - Elegant Green */
+    --primary: 152 69% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light gray */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 20% 25%;
+
+    /* Muted - Soft gray */
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - Same as primary for consistency */
+    --accent: 152 69% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders - Very subtle */
+    --border: 220 15% 91%;
+    --input: 220 15% 91%;
+    --ring: 152 69% 35%;
+
+    --radius: 1rem;
+
+    /* Custom Design Tokens */
+    --green-glow: 152 69% 45%;
+    --green-light: 152 60% 95%;
+    --green-medium: 152 69% 90%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.03);
+    --shadow-card: 0 4px 20px -4px rgb(0 0 0 / 0.08);
+    --shadow-card-hover: 0 12px 40px -8px rgb(0 0 0 / 0.12);
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 98%;
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 152 69% 45%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 152 69% 45%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 152 69% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Text gradient for headings */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(152 69% 35%) 0%, hsl(160 70% 30%) 100%);
+  }
+
+  /* Premium card style */
+  .premium-card {
+    @apply bg-card rounded-2xl border border-border/60;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Glass effect for navbar */
+  .glass-nav {
+    @apply bg-background/80 backdrop-blur-xl border-b border-border/50;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply container mx-auto px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Bokeh blur decorations */
+  .bokeh-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .bokeh-green {
+    background: radial-gradient(circle, hsl(152 69% 55% / 0.5) 0%, transparent 70%);
+  }
+
+  .bokeh-green-light {
+    background: radial-gradient(circle, hsl(152 60% 70% / 0.4) 0%, transparent 70%);
+  }
+
+  /* Badge style */
+  .badge-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: hsl(152 60% 95%);
+    color: hsl(152 69% 30%);
+  }
+
+  /* Feature icon box */
+  .icon-box {
+    @apply flex items-center justify-center rounded-xl;
+    background: linear-gradient(135deg, hsl(152 60% 95%) 0%, hsl(152 50% 92%) 100%);
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
