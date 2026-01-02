@@ -52,10 +52,10 @@ export const AboutSection = () => {
               </h2>
               <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed max-w-xl">
                 <p>
-                  <strong className="text-slate-900 font-bold">WebIndie</strong> lahir dari visi untuk mendemokrasi teknologi bagi UMKM. Kami percaya kualitas premium tidak harus selalu mahal.
+                  <strong className="text-slate-900 font-bold">Luncur Site</strong> lahir dari visi untuk mendemokrasi teknologi bagi UMKM. Kami percaya kualitas premium tidak harus selalu mahal.
                 </p>
                 <p className="text-base md:text-lg">
-                  Kami mengkombinasikan strategi bisnis dengan desain indie yang unik untuk menciptakan website yang tidak hanya cantik dilihat, tapi juga fungsional dan kredibel di mata pelanggan.
+                  Kami mengkombinasikan strategi bisnis dengan desain yang unik untuk menciptakan website yang tidak hanya cantik dilihat, tapi juga fungsional dan kredibel di mata pelanggan.
                 </p>
               </div>
 

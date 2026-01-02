@@ -53,7 +53,7 @@ export const Footer = () => {
                 <span className="text-white font-black text-2xl italic">W</span>
               </div>
               <span className="font-black text-2xl tracking-tighter text-slate-900 case">
-                Web<span className="text-primary italic">Indie</span>
+                Luncur<span className="text-primary italic">Site</span>
               </span>
             </a>
           </div>
@@ -80,7 +80,7 @@ export const Footer = () => {
           
           <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-6">
             <p className="text-[11px] font-bold text-slate-400 case tracking-[0.2em]">
-              © {new Date().getFullYear()} WebIndie — Crafted with Passion
+              © {new Date().getFullYear()} LuncurSite — Crafted with Passion
             </p>
             
             {/* Back to Top Button */}

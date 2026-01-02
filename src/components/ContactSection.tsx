@@ -15,8 +15,8 @@ const contactData = [
   {
     icon: Mail,
     label: "Email",
-    val: "hello@webindie.id",
-    link: "mailto:hello@webindie.id",
+    val: "hello@luncur.site",
+    link: "mailto:hello@luncur.site",
     theme: "hover:border-blue-500/30",
     iconColor: "text-blue-500",
     iconBg: "bg-blue-50",

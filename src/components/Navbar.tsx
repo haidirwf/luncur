@@ -80,8 +80,8 @@ export const Navbar = () => {
                 <span className="text-white font-black text-xl italic">W</span>
               </div>
               <span className="font-black text-xl tracking-tighter text-slate-900">
-                Web<span className="text-primary italic">Indie</span>
-              </span>
+                luncur<span className="text-primary italic">site</span>
+              </span> 
             </a>
 
             {/* Desktop Navigation - Capsule Style */}
