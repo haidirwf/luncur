@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Website Service
 
-## Project info
+Website Service adalah aplikasi berbasis web untuk mengelola layanan jasa/service secara online.
+Project ini dibuat sederhana, mudah dipahami, dan cocok untuk pembelajaran maupun pengembangan lanjutan.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🚀 Fitur
+- Landing page layanan
+- Booking / pemesanan service
+- Manajemen data service
+- Dashboard admin
+- Responsive design
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🛠️ Teknologi
+- PHP Native
+- MySQL
+- HTML, CSS, JavaScript
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📂 Struktur Folder
+project/
+├── admin/
+├── assets/
+├── config/
+│ └── database.php
+├── index.php
+└── README.md
 
-**Use your preferred IDE**
+yaml
+Copy code
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ⚙️ Instalasi & Konfigurasi
 
-Follow these steps:
+### 1. Clone repository
+git clone https://github.com/username/website-service.git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+markdown
+Copy code
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 2. Pindahkan ke server lokal
+- XAMPP → `htdocs`
+- Laragon → `www`
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Buat database
+CREATE DATABASE website_service;
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+pgsql
+Copy code
 
-**Edit a file directly in GitHub**
+### 4. Import database (.sql) jika ada
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 5. Konfigurasi database  
+File: `config/database.php`
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+<?php $host = "localhost"; $user = "root"; $pass = ""; $db = "website_service"; ``` ### 6. Jalankan di browser ``` http://localhost/website-service ``` --- ## 👤 Role - Admin - User --- ## 📄 License Free to use for learning and development. --- ## 👨‍💻 Author Nama Kamu ``` 
