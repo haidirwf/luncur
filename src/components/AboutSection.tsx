@@ -1,112 +1,143 @@
 import { motion } from "framer-motion";
-import { Target, Heart, Users, ArrowUpRight } from "lucide-react";
+import { Target, Zap, Users, ArrowUpRight, ShieldCheck } from "lucide-react";
 
 const values = [
   {
     icon: Target,
-    title: "Fokus pada Hasil",
-    description: "Kami tidak hanya membuat website, tapi memastikan website tersebut menjadi mesin pertumbuhan bisnis kamu.",
-    color: "bg-blue-500/10 text-blue-600",
+    title: "High Converting Design",
+    description: "Kami merancang setiap elemen website untuk mengubah pengunjung menjadi pelanggan setia bisnis Anda.",
+    iconColor: "text-emerald-600",
+    iconBg: "bg-emerald-50",
   },
   {
-    icon: Heart,
-    title: "Passion & Dedikasi",
-    description: "Setiap baris kode dikerjakan dengan penuh dedikasi dan perhatian terhadap detail estetik.",
-    color: "bg-rose-500/10 text-rose-600",
+    icon: Zap,
+    title: "Performa & SEO Optimal",
+    description: "Website super cepat dengan optimasi SEO agar bisnis Anda mudah ditemukan di Google dan nyaman diakses dari HP.",
+    iconColor: "text-primary",
+    iconBg: "bg-primary/10",
   },
   {
     icon: Users,
-    title: "Komunikasi Terbuka",
-    description: "Proses transparan dengan update berkala. Kami adalah partner, bukan sekadar vendor.",
-    color: "bg-emerald-500/10 text-emerald-600",
+    title: "Dukungan & Konsultasi",
+    description: "Kami adalah partner digital Anda. Gratis konsultasi strategis agar website benar-benar memberikan manfaat nyata.",
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-50",
   },
 ];
 
 export const AboutSection = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('kontak');
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
-    <section id="about" className="relative py-24 lg:py-40 bg-white overflow-hidden">
-      {/* Dekorasi Background Minimalis */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-[100px]" />
+    <section id="layanan" className="relative py-24 lg:py-32 bg-[#FBFBFC] overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] -left-[5%] w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] -right-[5%] w-96 h-96 bg-blue-400/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container px-4 mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div className="container px-6 mx-auto relative z-10">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
           
-          {/* Sisi Kiri: Narasi & Statistik */}
-          <div>
+          {/* Sisi Kiri: Narasi Jasa Website */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-widest mb-6">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Tentang Kami
-              </span>
-              <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter">
-                Membangun Jejak <br />
-                <span className="text-primary italic">Digital yang Berdampak.</span>
-              </h2>
-              <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed max-w-xl">
-                <p>
-                  <strong className="text-slate-900 font-bold">Luncur Site</strong> lahir dari visi untuk mendemokrasi teknologi bagi UMKM. Kami percaya kualitas premium tidak harus selalu mahal.
-                </p>
-                <p className="text-base md:text-lg">
-                  Kami mengkombinasikan strategi bisnis dengan desain yang unik untuk menciptakan website yang tidak hanya cantik dilihat, tapi juga fungsional dan kredibel di mata pelanggan.
-                </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Kenapa LuncurSite?</span>
               </div>
 
-              {/* Stats yang Dipercantik */}
-              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-12 pt-12 border-t border-slate-100">
-                {[
-                  { label: "Projects", val: "50+" },
-                  { label: "Clients", val: "40+" },
-                  { label: "Exp", val: "2th" },
-                ].map((stat, i) => (
-                  <div key={i}>
-                    <div className="text-3xl md:text-4xl font-black text-slate-900">{stat.val}</div>
-                    <p className="text-slate-400 text-xs md:text-sm font-medium tracking-wider">{stat.label}</p>
-                  </div>
-                ))}
+              <h2 className="text-5xl md:text-7xl font-black text-slate-900 leading-[0.85] tracking-tighter mb-8">
+                Solusi Web <br />
+                <span className="text-primary italic">Profesional</span> <br />
+                Untuk Bisnis.
+              </h2>
+
+              <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-md">
+                Di <strong className="text-slate-900 font-extrabold">LuncurSite</strong>, kami tidak hanya membuat barisan kode. Kami membangun platform digital yang menjadi wajah profesional bisnis Anda di mata dunia.
+              </p>
+
+              {/* Komitmen Pengganti Bento Stats */}
+              <div className="flex items-start gap-4 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm border-l-4 border-l-primary">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <ShieldCheck size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm mb-1">Komitmen Kami</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Fokus kami bukan pada kuantitas proyek, melainkan pada kualitas dan kepuasan Anda sebagai klien pertama kami.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Sisi Kanan: Value Cards dengan Layout Zig-zag */}
-          <div className="relative">
-            <div className="space-y-6">
+          {/* Sisi Kanan: Keunggulan Layanan */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                  transition={{ delay: index * 0.1 }}
+                  className="p-8 rounded-[2.5rem] border border-slate-100 bg-white transition-all duration-500 group hover:shadow-2xl hover:shadow-slate-200 hover:-translate-y-2"
                 >
-                  <div className="flex gap-6 items-start">
-                    <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center ${value.color} transition-transform group-hover:scale-110 duration-300`}>
-                      <value.icon size={28} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
-                        {value.title}
-                        <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-primary" />
-                      </h3>
-                      <p className="text-slate-500 leading-relaxed text-sm md:text-base">
-                        {value.description}
-                      </p>
-                    </div>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-6 ${value.iconBg} ${value.iconColor}`}>
+                    <value.icon size={28} strokeWidth={2} />
                   </div>
+
+                  <h3 className="text-xl font-black tracking-tight mb-4 flex items-center gap-2 text-slate-900">
+                    {value.title}
+                    <ArrowUpRight size={18} className="text-primary opacity-0 group-hover:opacity-100 transition-all" />
+                  </h3>
+
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {value.description}
+                  </p>
                 </motion.div>
               ))}
+              
+              {/* Kartu CTA Final */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                onClick={scrollToContact}
+                className="flex flex-col justify-center items-center p-8 rounded-[2.5rem] border-2 border-dashed border-primary/20 bg-primary/[0.02] group hover:border-primary/50 hover:bg-primary/[0.05] transition-all cursor-pointer min-h-[220px] active:scale-[0.98]"
+              >
+                <div className="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all mb-4">
+                  <ArrowUpRight size={26} strokeWidth={2.5} />
+                </div>
+                <div className="text-center">
+                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-1">Siap Go Digital?</p>
+                  <p className="text-slate-900 font-black text-lg tracking-tight">Mulai Konsultasi Gratis</p>
+                </div>
+              </motion.div>
             </div>
-
-            {/* Elemen Dekoratif di belakang kartu */}
-            <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-50" />
           </div>
 
         </div>

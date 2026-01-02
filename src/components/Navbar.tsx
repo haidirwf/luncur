@@ -20,15 +20,13 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Logika Active Link Detection
       const sections = navLinks.map(link => link.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 300) {
+          if (rect.top >= -100 && rect.top <= 300) {
             setActiveSection(section);
-            break;
           }
         }
       }
@@ -38,7 +36,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
@@ -70,28 +68,32 @@ export const Navbar = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo Area - Ukuran dikecilkan ke w-8 h-8 */}
             <a
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}
-              className="group flex items-center gap-3"
+              className="group flex items-center gap-2.5"
             >
-              <div className="w-10 h-10 rounded-2xl bg-slate-900 flex items-center justify-center transition-transform group-hover:rotate-12">
-                <span className="text-white font-black text-xl italic">W</span>
+              <div className="relative w-8 h-8 flex items-center justify-center transition-transform group-hover:scale-110">
+                <img 
+                  src="/logo.svg" 
+                  alt="LuncurSite Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="font-black text-xl tracking-tighter text-slate-900">
-                luncur<span className="text-primary italic">site</span>
+              <span className="font-black text-lg tracking-tighter text-slate-900">
+                luncur<span className="text-primary">site</span>
               </span> 
             </a>
 
-            {/* Desktop Navigation - Capsule Style */}
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center bg-slate-100/50 p-1 rounded-2xl border border-slate-200/20">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`px-5 py-2 text-xs font-bold tracking-widest transition-all rounded-xl ${
+                  className={`px-5 py-2 text-[10px] font-black tracking-[0.2em] transition-all rounded-xl ${
                     activeSection === link.href.substring(1)
                       ? "bg-white text-primary shadow-sm"
                       : "text-slate-500 hover:text-slate-900"
@@ -106,7 +108,7 @@ export const Navbar = () => {
             <div className="hidden lg:block">
               <Button
                 onClick={() => handleNavClick("#kontak")}
-                className="rounded-xl bg-slate-900 hover:bg-primary text-white font-bold px-6 py-5 transition-all shadow-lg hover:shadow-primary/20"
+                className="rounded-xl bg-slate-900 hover:bg-primary text-white font-black text-[10px] tracking-widest px-6 py-5 transition-all shadow-lg hover:shadow-primary/20"
               >
                 Let's Talk
               </Button>
@@ -114,7 +116,7 @@ export const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-100 rounded-xl text-slate-900"
+              className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-100 rounded-xl text-slate-900 active:scale-90 transition-transform"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -130,7 +132,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-[90%] left-4 right-4 mt-2 p-6 bg-white/95 backdrop-blur-2xl rounded-[2rem] border border-slate-100 shadow-2xl z-[101]"
+            className="lg:hidden absolute top-[90%] left-4 right-4 mt-2 p-6 bg-white/95 backdrop-blur-2xl rounded-[2.5rem] border border-slate-100 shadow-2xl z-[101]"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -138,7 +140,7 @@ export const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold tracking-widest transition-all ${
+                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-[10px] font-black tracking-widest transition-all ${
                     activeSection === link.href.substring(1)
                       ? "bg-primary/10 text-primary"
                       : "bg-slate-50 text-slate-500 hover:bg-slate-100"
@@ -149,7 +151,7 @@ export const Navbar = () => {
                 </a>
               ))}
               <Button
-                className="mt-4 w-full h-14 rounded-2xl bg-slate-900 font-bold tracking-widest"
+                className="mt-4 w-full h-14 rounded-2xl bg-slate-900 text-[10px] font-black tracking-widest"
                 onClick={() => handleNavClick("#kontak")}
               >
                 Start a Project

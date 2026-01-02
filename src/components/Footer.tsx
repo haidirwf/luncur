@@ -3,7 +3,6 @@ import { ArrowUp } from "lucide-react";
 
 const footerLinks = [
   { href: "#hero", label: "Home" },
-  { href: "#keunggulan", label: "Keunggulan" },
   { href: "#layanan", label: "Layanan" },
   { href: "#pricelist", label: "Pricelist" },
   { href: "#portfolio", label: "Portfolio" },
@@ -11,7 +10,7 @@ const footerLinks = [
 ];
 
 export const Footer = () => {
-  const handleNavClick = (href) => {
+  const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
@@ -39,7 +38,7 @@ export const Footer = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center"
         >
-          {/* Logo Section - Capsule Style */}
+          {/* Logo Section */}
           <div className="mb-12">
             <a
               href="#hero"
@@ -49,10 +48,16 @@ export const Footer = () => {
               }}
               className="group flex flex-col items-center gap-4"
             >
-              <div className="w-14 h-14 rounded-[2rem] bg-slate-900 flex items-center justify-center transition-all duration-500 group-hover:rotate-[360deg] shadow-xl shadow-slate-200">
-                <span className="text-white font-black text-2xl italic">W</span>
+              {/* LOGO.SVG INTEGRATION */}
+              <div className="w-16 h-16 transition-all duration-700 group-hover:scale-110 group-hover:rotate-[360deg]">
+                <img 
+                  src="/logo.svg" 
+                  alt="LuncurSite Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => (e.currentTarget.style.display = 'none')}
+                />
               </div>
-              <span className="font-black text-2xl tracking-tighter text-slate-900 case">
+              <span className="font-black text-2xl tracking-tighter text-slate-900 uppercase">
                 Luncur<span className="text-primary italic">Site</span>
               </span>
             </a>
@@ -68,7 +73,7 @@ export const Footer = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="px-6 py-2.5 text-[11px] font-black case tracking-widest text-slate-500 hover:text-primary transition-all duration-300 rounded-full hover:bg-white"
+                className="px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-primary transition-all duration-300 rounded-full hover:bg-white"
               >
                 {link.label}
               </a>
@@ -79,7 +84,7 @@ export const Footer = () => {
           <div className="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-8" />
           
           <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-6">
-            <p className="text-[11px] font-bold text-slate-400 case tracking-[0.2em]">
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
               © {new Date().getFullYear()} LuncurSite — Crafted with Passion
             </p>
             
@@ -88,7 +93,7 @@ export const Footer = () => {
               onClick={() => handleNavClick("#hero")}
               className="group flex items-center gap-3 px-6 py-3 bg-white border border-slate-100 rounded-full shadow-sm hover:shadow-md transition-all active:scale-95"
             >
-              <span className="text-[10px] font-black case tracking-widest text-slate-900">Back to Top</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Back to Top</span>
               <div className="w-6 h-6 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:-translate-y-1 transition-transform">
                 <ArrowUp size={12} strokeWidth={3} />
               </div>
