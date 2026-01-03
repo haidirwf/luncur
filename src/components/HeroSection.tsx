@@ -20,7 +20,8 @@ export const HeroSection = () => {
       
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      <div className="section-container relative z-10 px-4 pt-32 pb-20 md:pt-20">
+      {/* Menambahkan md:pt-40 untuk memberi ruang lebih di desktop agar tidak kena navbar */}
+      <div className="section-container relative z-10 px-4 pt-32 pb-20 md:pt-40">
         <div className="max-w-5xl mx-auto text-center">
           
           {/* Badge */}
@@ -47,9 +48,8 @@ export const HeroSection = () => {
             <strong className="text-slate-900 font-black"> Premium, Cepat, dan High-Convert</strong> untuk melejitkan kredibilitas bisnismu sekarang.
           </p>
 
-          {/* Action Hub - EDGY STYLE */}
+          {/* Action Hub */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-slide-up [animation-delay:400ms]">
-            {/* CTA UTAMA */}
             <button
               onClick={() => scrollTo("#pricelist")}
               className="relative w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-2xl font-black text-lg flex items-center justify-center gap-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,0.1)] transition-all hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[12px_12px_0px_0px_rgba(15,23,42,0.1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
@@ -57,7 +57,6 @@ export const HeroSection = () => {
               Order Website <ArrowUpRight size={22} strokeWidth={3} />
             </button>
             
-            {/* CTA SECONDARY */}
             <button
               onClick={() => scrollTo("#kontak")}
               className="relative w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-2xl font-black text-lg flex items-center justify-center gap-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,0.1)] transition-all hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[12px_12px_0px_0px_rgba(15,23,42,0.1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none"
@@ -73,16 +72,7 @@ export const HeroSection = () => {
             <span className="flex items-center gap-2 font-bold"><CheckCircle2 size={18} className="text-primary" /> Support Selamanya</span>
           </div>
 
-          {/* Social Proof */}
-          <div className="mt-24 pt-12 border-t border-slate-100 animate-fade-in [animation-delay:800ms]">
-            <p className="text-[10px] tracking-[0.3em] font-black text-slate-300 mb-10 uppercase">Telah Dipercaya Oleh Berbagai Industri</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 grayscale opacity-30 hover:opacity-100 transition-all duration-500">
-              <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900">TRAVELKU</span>
-              <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900">TOKOMAJU</span>
-              <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900">KLINIKSEHAT</span>
-              <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900">CAFEKOPI</span>
-            </div>
-          </div>
+          {/* Bagian Social Proof (Telah Dipercaya Oleh) sudah dihapus */}
         </div>
       </div>
     </section>
