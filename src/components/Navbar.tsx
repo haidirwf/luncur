@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 const navLinks = [
   { href: "#hero", label: "Home" },
   { href: "#layanan", label: "Layanan" },
-  { href: "#portfolio", label: "Portfolio" },
   { href: "#pricelist", label: "Pricelist" },
   { href: "#kontak", label: "Kontak" },
 ];
 
-export const Navbar = () => {
+export const Navbar = () => { 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -68,11 +67,11 @@ export const Navbar = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo Area - Ukuran dikecilkan ke w-8 h-8 */}
+            {/* Logo Area */}
             <a
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}
-              className="group flex items-center gap-2.5"
+              className="group flex items-center gap-2"
             >
               <div className="relative w-8 h-8 flex items-center justify-center transition-transform group-hover:scale-110">
                 <img 
@@ -81,19 +80,19 @@ export const Navbar = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-black text-lg tracking-tighter text-slate-900">
+              <span className="font-black text-xl tracking-tighter text-slate-900">
                 luncur<span className="text-primary">site</span>
               </span> 
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center bg-slate-100/50 p-1 rounded-2xl border border-slate-200/20">
+            <div className="hidden lg:flex items-center bg-slate-100/50 p-1.5 rounded-2xl border border-slate-200/20">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`px-5 py-2 text-[10px] font-black tracking-[0.2em] transition-all rounded-xl ${
+                  className={`px-5 py-2 text-sm font-bold transition-all rounded-xl ${
                     activeSection === link.href.substring(1)
                       ? "bg-white text-primary shadow-sm"
                       : "text-slate-500 hover:text-slate-900"
@@ -104,14 +103,14 @@ export const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Style identik dengan Pricelist */}
             <div className="hidden lg:block">
-              <Button
+              <button
                 onClick={() => handleNavClick("#kontak")}
-                className="rounded-xl bg-slate-900 hover:bg-primary text-white font-black text-[10px] tracking-widest px-6 py-5 transition-all shadow-lg hover:shadow-primary/20"
+                className="bg-slate-900 text-white px-7 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-[4px_4px_0px_0px_rgba(15,23,42,0.1)] transition-all duration-300 hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,0.1)] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none hover:bg-primary"
               >
-                Let's Talk
-              </Button>
+                Let's Talk <ArrowUpRight size={16} strokeWidth={3} />
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -140,22 +139,22 @@ export const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-[10px] font-black tracking-widest transition-all ${
+                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold transition-all ${
                     activeSection === link.href.substring(1)
                       ? "bg-primary/10 text-primary"
                       : "bg-slate-50 text-slate-500 hover:bg-slate-100"
                   }`}
                 >
                   {link.label}
-                  <ArrowRight size={16} className={activeSection === link.href.substring(1) ? "opacity-100" : "opacity-0"} />
+                  <ArrowUpRight size={18} className={activeSection === link.href.substring(1) ? "opacity-100" : "opacity-0"} />
                 </a>
               ))}
-              <Button
-                className="mt-4 w-full h-14 rounded-2xl bg-slate-900 text-[10px] font-black tracking-widest"
+              <button
+                className="mt-4 w-full h-14 rounded-2xl bg-slate-900 text-white font-bold text-sm shadow-[4px_4px_0px_0px_rgba(15,23,42,0.1)] active:translate-y-[1px] active:shadow-none"
                 onClick={() => handleNavClick("#kontak")}
               >
                 Start a Project
-              </Button>
+              </button>
             </div>
           </motion.div>
         )}

@@ -31,7 +31,6 @@ const tabs = [
 export const PricelistSection = () => {
   const [activeTab, setActiveTab] = useState("landing");
 
-  // Logic untuk menerima perubahan tab dari luar (LayananSection)
   useEffect(() => {
     const handleTabChange = (e: any) => {
       if (e.detail) setActiveTab(e.detail);
@@ -46,70 +45,77 @@ export const PricelistSection = () => {
 
   return (
     <section id="pricelist" className="relative py-24 bg-[#F8FAFC] overflow-hidden">
+      {/* Ornaments */}
       <div className="absolute top-0 -left-20 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-blue-100/50 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 px-4 mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Header - Redesigned to be Larger */}
+        <div className="text-center max-w-4xl mx-auto mb-16 px-4">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-4 text-[11px] font-black text-primary bg-primary/10 rounded-full tracking-[0.2em]"
+            className="inline-block px-4 py-1.5 mb-6 text-[11px] font-black text-primary bg-primary/10 rounded-full tracking-[0.2em]"
           >
-            Pricelist
+            PRICELIST
           </motion.span>
+          
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter leading-none"
+            className="flex flex-col md:block text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.8]"
           >
-            Investasi <span className="text-primary italic">Masa Depan.</span>
+            <span className="block md:inline">Investasi</span>{" "}
+            <span className="text-primary block md:inline">Masa Depan.</span>
           </motion.h2>
+
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-slate-500 text-lg md:text-xl font-medium"
+            className="text-slate-500 text-lg md:text-2xl font-medium max-w-2xl mx-auto"
           >
             Pilih paket yang paling pas untuk kebutuhan bisnismu.
           </motion.p>
         </div>
 
-        <div className="flex justify-center mb-16 px-2">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative flex flex-wrap justify-center gap-2 p-2 bg-white/50 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full max-w-fit shadow-sm"
-            >
-              {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                  <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`relative flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-colors duration-300 z-10 ${
-                      isActive ? "text-white" : "text-slate-500 hover:text-primary"
-                      }`}
-                  >
-                      {isActive && (
-                      <motion.div
-                          layoutId="activeTabPricelist"
-                          className="absolute inset-0 bg-primary rounded-full -z-10 shadow-lg shadow-primary/25"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      />
-                      )}
-                      <Icon size={16} />
-                      {tab.label}
-                  </button>
-                  );
-              })}
-            </motion.div>
+        {/* Tab Switcher */}
+        <div className="flex justify-center mb-12 px-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative grid grid-cols-2 md:flex gap-2 p-2 bg-white/70 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full w-full max-w-lg md:max-w-fit shadow-sm"
+          >
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`relative flex items-center justify-center md:justify-start gap-2 px-4 py-3 md:px-5 md:py-2.5 rounded-2xl md:rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
+                    isActive ? "text-white" : "text-slate-500 hover:text-primary"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTabPricelist"
+                      className="absolute inset-0 bg-primary rounded-2xl md:rounded-full -z-10 shadow-lg shadow-primary/25"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <Icon size={16} className="shrink-0" />
+                  <span className="whitespace-nowrap">{tab.label}</span>
+                </button>
+              );
+            })}
+          </motion.div>
         </div>
 
+        {/* Pricing Cards */}
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
             <AnimatePresence mode="wait">
@@ -130,7 +136,7 @@ export const PricelistSection = () => {
                   >
                     {isPremium && (
                       <div className="absolute top-8 right-8">
-                        <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black tracking-widest">
+                        <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">
                           <Star size={12} fill="currentColor" /> Best Value
                         </div>
                       </div>
@@ -145,10 +151,10 @@ export const PricelistSection = () => {
                           {isPremium ? "Rp800.000" : "Rp400.000"}
                         </span>
                       </div>
-                      <p className="text-slate-400 text-[10px] mt-2 font-black tracking-widest italic">Sekali Bayar</p>
+                      <p className="text-slate-400 text-[10px] mt-2 font-black tracking-widest italic uppercase">Sekali Bayar</p>
                     </div>
 
-                    <ul className="space-y-4 mb-14 flex-grow">
+                    <ul className="space-y-4 mb-20 flex-grow">
                       {features.map((f, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${isPremium ? "bg-primary/10 text-primary" : "bg-slate-50 text-slate-300"}`}>

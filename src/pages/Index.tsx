@@ -22,7 +22,6 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 };
