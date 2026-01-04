@@ -25,7 +25,7 @@ export const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/20 text-primary text-sm font-bold mb-10 animate-fade-in backdrop-blur-sm">
             <Sparkles size={14} className="animate-pulse" />
-            <span>Pengembangan Website Terbaik</span>
+            <span>Partner Digital Pertumbuhan Bisnismu</span>
           </div>
 
           {/* Headline */}

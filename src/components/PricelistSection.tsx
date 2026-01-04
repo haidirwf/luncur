@@ -44,45 +44,45 @@ export const PricelistSection = () => {
   };
 
   return (
-    <section id="pricelist" className="relative py-24 bg-[#F8FAFC] overflow-hidden">
+    <section id="pricelist" className="relative py-20 bg-[#F8FAFC] overflow-hidden">
       {/* Ornaments */}
       <div className="absolute top-0 -left-20 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-blue-100/50 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 px-4 mx-auto">
-        {/* Header - Redesigned to be Larger */}
-        <div className="text-center max-w-4xl mx-auto mb-16 px-4">
+        {/* Header - Optimized Scale & Matched Badge */}
+        <div className="text-center max-w-5xl mx-auto mb-8 px-4">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 text-[11px] font-black text-primary bg-primary/10 rounded-full tracking-[0.2em]"
+            /* Badge mengikuti gaya LayananSection: text-sm font-bold */
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-bold text-primary bg-primary/10 rounded-full"
           >
-            PRICELIST
+            Pricelist
           </motion.span>
           
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:block text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.8]"
+            className="flex flex-col md:block text-6xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 tracking-tighter md:tracking-tight leading-[0.85] md:leading-normal"
           >
-            <span className="block md:inline">Investasi</span>{" "}
-            <span className="text-primary block md:inline">Masa Depan.</span>
+            Investasi <span className="text-primary">Masa Depan.</span>
           </motion.h2>
 
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-slate-500 text-lg md:text-2xl font-medium max-w-2xl mx-auto"
+            className="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto"
           >
             Pilih paket yang paling pas untuk kebutuhan bisnismu.
           </motion.p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-12 px-4">
+        <div className="flex justify-center mb-10 px-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -115,9 +115,9 @@ export const PricelistSection = () => {
           </motion.div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
+        {/* Pricing Cards - Compact */}
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-8">
             <AnimatePresence mode="wait">
               {["planA", "planB"].map((planKey, idx) => {
                 const isPremium = planKey === "planB";
@@ -130,37 +130,37 @@ export const PricelistSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className={`w-full group relative bg-white rounded-[3rem] p-8 lg:p-12 border transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 flex flex-col ${
+                    className={`w-full group relative bg-white rounded-[2rem] p-7 lg:p-9 border transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 flex flex-col ${
                       isPremium ? "border-primary/30" : "border-slate-100 shadow-sm"
                     }`}
                   >
                     {isPremium && (
-                      <div className="absolute top-8 right-8">
-                        <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">
-                          <Star size={12} fill="currentColor" /> Best Value
+                      <div className="absolute top-6 right-6">
+                        <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase">
+                          <Star size={10} fill="currentColor" /> Best Value
                         </div>
                       </div>
                     )}
 
-                    <div className="mb-8">
-                      <h3 className="text-xl font-black text-slate-900 mb-1 tracking-tight">
+                    <div className="mb-6">
+                      <h3 className="text-lg font-black text-slate-900 mb-1 tracking-tight">
                         {isPremium ? "Paket Premium" : "Paket Dasar"}
                       </h3>
-                      <div className="flex items-baseline gap-1 mt-4">
-                        <span className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
+                      <div className="flex items-baseline gap-1 mt-2">
+                        <span className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">
                           {isPremium ? "Rp800.000" : "Rp400.000"}
                         </span>
                       </div>
-                      <p className="text-slate-400 text-[10px] mt-2 font-black tracking-widest italic uppercase">Sekali Bayar</p>
+                      <p className="text-slate-400 text-[9px] mt-1 font-black tracking-widest italic uppercase">Sekali Bayar</p>
                     </div>
 
-                    <ul className="space-y-4 mb-20 flex-grow">
+                    <ul className="space-y-3 mb-16 flex-grow">
                       {features.map((f, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${isPremium ? "bg-primary/10 text-primary" : "bg-slate-50 text-slate-300"}`}>
-                            <Check size={12} strokeWidth={4} />
+                          <div className={`mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${isPremium ? "bg-primary/10 text-primary" : "bg-slate-50 text-slate-300"}`}>
+                            <Check size={10} strokeWidth={4} />
                           </div>
-                          <span className="text-slate-600 text-[15px] font-medium leading-tight">{f}</span>
+                          <span className="text-slate-600 text-sm font-medium leading-snug">{f}</span>
                         </li>
                       ))}
                     </ul>
@@ -168,18 +168,18 @@ export const PricelistSection = () => {
                     <button
                       onClick={scrollToKontak}
                       className={`
-                        absolute bottom-8 right-8
+                        absolute bottom-6 right-6
                         ${isPremium ? "bg-primary shadow-primary/20" : "bg-slate-900 shadow-slate-900/10"} text-white
-                        px-7 py-4 md:px-9 md:py-5 rounded-2xl font-bold text-sm
+                        px-6 py-3.5 md:px-7 md:py-4 rounded-xl font-bold text-xs
                         flex items-center gap-2
-                        shadow-[6px_6px_0px_0px_rgba(15,23,42,0.1)]
+                        shadow-[4px_4px_0px_0px_rgba(15,23,42,0.1)]
                         transition-all duration-300 z-20
                         hover:translate-y-[-2px] hover:translate-x-[-2px] 
-                        hover:shadow-[10px_10px_0px_0px_rgba(15,23,42,0.1)]
-                        active:translate-y-[2px] active:translate-x-[2px] active:shadow-none
+                        hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,0.1)]
+                        active:translate-y-[1px] active:translate-x-[1px] active:shadow-none
                       `}
                     >
-                      Konsultasi & Order <ArrowUpRight size={18} strokeWidth={3} />
+                      Order <ArrowUpRight size={16} strokeWidth={3} />
                     </button>
                   </motion.div>
                 );

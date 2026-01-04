@@ -85,7 +85,7 @@ export const Footer = () => {
           
           <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl gap-6">
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-              © {new Date().getFullYear()} LuncurSite — Crafted with Passion
+              © {new Date().getFullYear()} LuncurSite — pengembangan website terbaik
             </p>
             
             {/* Back to Top Button */}
