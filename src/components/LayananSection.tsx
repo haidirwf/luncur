@@ -102,7 +102,7 @@ export const LayananSection = () => {
               </div>
             ))}
           </div>
-
+            
           {/* Mobile Indicators */}
           <div className="flex lg:hidden justify-center gap-2 mt-2">
             {layanan.map((_, i) => (
