@@ -151,7 +151,7 @@ export const PricelistSection = () => {
                           {isPremium ? "Rp1.200.000" : "Rp800.000"}
                         </span>
                       </div>
-                      <p className="text-slate-400 text-[9px] mt-1 font-black tracking-widest italic uppercase">Sekali Bayar</p>
+                      
                     </div>
 
                     <ul className="space-y-3 mb-16 flex-grow">
