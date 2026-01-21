@@ -1,11 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { KeunggulanSection } from "@/components/KeunggulanSection";
 import { LayananSection } from "@/components/LayananSection";
 import { PricelistSection } from "@/components/PricelistSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
