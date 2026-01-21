@@ -148,7 +148,7 @@ export const PricelistSection = () => {
                       </h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">
-                          {isPremium ? "Rp800.000" : "Rp400.000"}
+                          {isPremium ? "Rp1.200.000" : "Rp800.000"}
                         </span>
                       </div>
                       <p className="text-slate-400 text-[9px] mt-1 font-black tracking-widest italic uppercase">Sekali Bayar</p>
