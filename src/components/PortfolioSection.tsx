@@ -1,109 +1,113 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Globe } from "lucide-react";
+import { useRef, useState } from "react";
 
 const portfolios = [
   {
-    title: "Urban Architecture",
-    desc: "Transformasi digital untuk firma arsitektur dengan fokus pada visual portfolio yang imersif.",
-    category: "Corporate Site",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    id: 1,
+    title: "EcoStay Resort",
+    category: "Travel & Tour",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200",
+    link: "#",
   },
   {
-    title: "Eco-Harvest Market",
-    desc: "Sistem e-commerce terintegrasi untuk distribusi produk organik lokal secara langsung ke konsumen.",
-    category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    id: 2,
+    title: "Urban Store",
+    category: "E-commerce",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Architech Studio",
+    category: "Company Profile",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200",
+    link: "#",
   },
 ];
 
 export const PortfolioSection = () => {
-  const [index, setIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const next = () => setIndex((prev) => (prev === portfolios.length - 1 ? 0 : prev + 1));
-  const prev = () => setIndex((prev) => (prev === 0 ? portfolios.length - 1 : prev - 1));
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const scrollPosition = scrollRef.current.scrollLeft;
+      const cardWidth = scrollRef.current.offsetWidth * 0.8;
+      setActiveIndex(Math.round(scrollPosition / cardWidth));
+    }
+  };
 
   return (
-    <section className="py-20 bg-[#F8FAFC]">
-      <div className="container px-6 mx-auto">
+    <section id="portfolio" className="py-20 bg-white overflow-hidden font-sans">
+      <div className="container mx-auto px-4">
         
-        {/* Header - Simple & Strong */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-xl">
-            <h2 className="text-5xl font-black text-slate-900 tracking-tighter mb-4">
-              Our <span className="text-primary">Work.</span>
-            </h2>
-            <p className="text-slate-500 font-medium text-lg">
-              Project pilihan yang kami kerjakan dengan sepenuh hati.
-            </p>
-          </div>
-          
-          {/* Controls - Same style as Pricelist */}
-          <div className="flex gap-3">
-            <button
-              onClick={prev}
-              className="p-4 rounded-xl bg-white border border-slate-200 text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,0.05)] hover:bg-slate-50 transition-all active:translate-y-[2px]"
-            >
-              <ArrowLeft size={20} strokeWidth={3} />
-            </button>
-            <button
-              onClick={next}
-              className="p-4 rounded-xl bg-slate-900 text-white shadow-[4px_4px_0px_0px_rgba(15,23,42,0.2)] hover:bg-primary transition-all active:translate-y-[2px]"
-            >
-              <ArrowRight size={20} strokeWidth={3} />
-            </button>
-          </div>
+        {/* Header */}
+        <div className="mb-12 px-2">
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-4"
+          >
+            Project <span className="text-primary">Kami.</span>
+          </motion.h2>
+          <p className="text-slate-500 font-medium">Hasil kerja nyata untuk klien kami.</p>
         </div>
 
-        {/* Portfolio Display */}
+        {/* Carousel */}
         <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="grid grid-cols-1 gap-8"
-            >
-              {/* Image Card */}
-              <div className="group relative aspect-[16/9] md:aspect-[21/9] w-full rounded-[2rem] overflow-hidden bg-white border border-slate-200 shadow-xl shadow-slate-200/50">
-                <img
-                  src={portfolios[index].image}
-                  alt={portfolios[index].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Info Below Image */}
-              <div className="flex flex-col md:flex-row justify-between items-start gap-8 bg-white p-8 md:p-12 rounded-[2rem] border border-slate-100 shadow-sm">
-                <div className="max-w-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest rounded-full">
-                      {portfolios[index].category}
-                    </span>
-                    <span className="text-slate-300 text-xs font-bold">0{index + 1} / 0{portfolios.length}</span>
-                  </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight uppercase">
-                    {portfolios[index].title}
-                  </h3>
-                  <p className="text-slate-500 font-medium leading-relaxed">
-                    {portfolios[index].desc}
-                  </p>
+          <div 
+            ref={scrollRef} 
+            onScroll={handleScroll} 
+            className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar px-2"
+          >
+            {portfolios.map((item, index) => (
+              <div key={index} className="min-w-[85%] sm:min-w-[48%] lg:min-w-full snap-center group">
+                {/* Image Wrap */}
+                <div className="relative aspect-video mb-6 overflow-hidden rounded-[2rem] bg-slate-100 border border-slate-100">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
 
-                <a
-                  href={portfolios[index].link}
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-primary text-white px-10 py-5 rounded-2xl font-black text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] active:translate-y-[1px]"
-                >
-                  Lihat Website <ArrowUpRight size={20} strokeWidth={3} />
-                </a>
+                {/* Info & Button */}
+                <div className="flex items-end justify-between px-2">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-1">
+                      {item.category}
+                    </p>
+                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                  
+                  <a 
+                    href={item.link}
+                    target="_blank"
+                    className="flex items-center justify-center w-12 h-12 rounded-2xl bg-slate-900 text-white hover:bg-primary transition-colors shadow-lg shadow-slate-200"
+                  >
+                    <ArrowUpRight size={22} strokeWidth={2.5} />
+                  </a>
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </div>
+            
+          {/* Indicators */}
+          <div className="flex lg:hidden justify-center gap-2 mt-4">
+            {portfolios.map((_, i) => (
+              <div 
+                key={i} 
+                className={`h-1 rounded-full transition-all ${activeIndex === i ? "w-8 bg-primary" : "w-2 bg-slate-200"}`} 
+              />
+            ))}
+          </div>
         </div>
       </div>
+      <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
     </section>
   );
 };
