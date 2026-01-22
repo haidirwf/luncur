@@ -42,7 +42,7 @@ export const ContactSection = () => {
             </motion.span>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[0.85] md:leading-tight tracking-tighter">
               Siap Mulai <br />
-              <span className="text-primary italic">Proyekmu?</span>
+              <span className="text-primary">Proyekmu?</span>
             </h2>
           </div>
           <div className="lg:w-1/2 w-full">
