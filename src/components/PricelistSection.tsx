@@ -16,8 +16,8 @@ const pricingData = {
     planB: ["8+ Halaman Custom", "Custom Desain Premium", "Katalog Paket Wisata", "Form Booking + WhatsApp", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Lengkap + Blog", "Free Maintenance 1 Bulan"],
   },
   toko: {
-    planA: ["Katalog Produk (max 50)", "Desain Responsif", "Keranjang Belanja Basic", "Checkout via WhatsApp", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
-    planB: ["Katalog Produk Unlimited", "Custom Desain Premium", "Keranjang + Checkout Pro", "Integrasi Payment Gateway", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
+    planA: ["Katalog Produk", "Desain Responsif", "Keranjang Belanja Basic", "Checkout via WhatsApp", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
+    planB: ["Katalog Produk", "Custom Desain Premium", "Keranjang Belanja Basic", "Cehckout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
   },
 };
 
