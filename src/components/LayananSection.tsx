@@ -6,7 +6,7 @@ const layanan = [
   { id: "landing", icon: FileText, title: "Landing Page", description: "Desain satu halaman yang dioptimalkan untuk konversi tinggi dan kecepatan maksimal.", features: ["Fast Load", "CTA Optimal"], iconColor: "text-blue-500", iconBg: "bg-blue-50" },
   { id: "company", icon: Building2, title: "Company Profile", description: "Bangun kredibilitas bisnis Anda dengan website profil yang elegan dan profesional.", features: ["Multi Page", "SEO Ready"], iconColor: "text-indigo-500", iconBg: "bg-indigo-50" },
   { id: "travel", icon: Plane, title: "Travel & Tour", description: "Sistem katalog paket wisata lengkap dengan fitur reservasi untuk pelanggan.", features: ["Booking", "Destinasi"], iconColor: "text-emerald-500", iconBg: "bg-emerald-50" },
-  { id: "toko", icon: ShoppingCart, title: "Toko Online", description: "Kelola penjualan otomatis dengan integrasi ongkir dan manajemen stok.", features: ["E-commerce", "Auto Ongkir"], iconColor: "text-orange-500", iconBg: "bg-orange-50" },
+  { id: "toko", icon: ShoppingCart, title: "Toko Online", description: "Kelola penjualan dengan katalog dan integrasi WhatsApp.", features: ["E-commerce", "Auto Ongkir"], iconColor: "text-orange-500", iconBg: "bg-orange-50" },
 ];
 
 export const LayananSection = () => {
