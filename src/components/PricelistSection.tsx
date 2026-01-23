@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// Tambahkan Settings2 ke import lucide-react
 import { Check, Star, Rocket, Building2, Palmtree, ShoppingBag, ArrowUpRight, Settings2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,8 +20,9 @@ const pricingData = {
     planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Keranjang Belanja Basic", "Checkout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
   },
   custom: {
-    planA: ["Request Fitur Khusus", "Arsitektur Skalabel", "Integrasi Third-party API", "Desain UI/UX Eksklusif", "Optimasi Performa Tinggi", "Technical Support 24/7", "Handover Source Code", "Dokumentasi Lengkap"],
-    planB: ["Sistem Informasi Custom", "Dashboard Admin Kompleks", "Automasi Bisnis", "Dedicated Cloud Hosting", "Keamanan Tingkat Tinggi", "Maintenance Maintenance 6 bln", "SLA Guarantee", "Prioritas Pengembangan"],
+    planSingle: [
+      "Fitur Sesuai Kebutuhan Anda",
+    ],
   },
 };
 
@@ -31,7 +31,7 @@ const tabs = [
   { id: "company", label: "Company Profile", icon: Building2 },
   { id: "travel", label: "Travel & Tour", icon: Palmtree },
   { id: "toko", label: "Toko Online", icon: ShoppingBag },
-  { id: "custom", label: "Custom Web", icon: Settings2 }, // Tab Baru
+  { id: "custom", label: "Custom Web", icon: Settings2 },
 ];
 
 export const PricelistSection = () => {
@@ -86,13 +86,13 @@ export const PricelistSection = () => {
           </motion.p>
         </div>
 
-        {/* Tab Switcher - Diubah menjadi flex-wrap agar muat banyak tab */}
+        {/* Tab Switcher */}
         <div className="flex justify-center mb-10 px-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative flex flex-wrap justify-center gap-2 p-2 bg-white/70 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full w-full max-w-4xl shadow-sm"
+            className="relative flex flex-wrap justify-center gap-2 p-2 bg-white/70 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full w-full max-w-fit shadow-sm"
           >
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -101,7 +101,7 @@ export const PricelistSection = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex items-center justify-center gap-2 px-4 py-3 md:px-5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
+                  className={`relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
                     isActive ? "text-white" : "text-slate-500 hover:text-primary"
                   }`}
                 >
@@ -122,20 +122,22 @@ export const PricelistSection = () => {
 
         {/* Pricing Cards */}
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-8">
-            <AnimatePresence mode="wait">
-              {["planA", "planB"].map((planKey, idx) => {
-                const isPremium = planKey === "planB";
-                const isCustom = activeTab === "custom";
-                const features = pricingData[activeTab][planKey];
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              className={activeTab === "custom" ? "block" : "grid md:grid-cols-2 gap-6 lg:gap-8"}
+            >
+              {(activeTab === "custom" ? ["planSingle"] : ["planA", "planB"]).map((planKey, idx) => {
+                const isPremium = planKey === "planB" || planKey === "planSingle";
+                const features = (pricingData as any)[activeTab][planKey];
 
                 return (
-                  <motion.div
+                  <div
                     key={`${activeTab}-${planKey}`}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
                     className={`w-full group relative bg-white rounded-[2rem] p-7 lg:p-9 border transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 flex flex-col ${
                       isPremium ? "border-primary/30" : "border-slate-100 shadow-sm"
                     }`}
@@ -143,24 +145,24 @@ export const PricelistSection = () => {
                     {isPremium && (
                       <div className="absolute top-6 right-6">
                         <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase">
-                          <Star size={10} fill="currentColor" /> {isCustom ? "Enterprise" : "Best Value"}
+                          <Star size={10} fill="currentColor" /> {activeTab === "custom" ? "Exclusive" : "Best Value"}
                         </div>
                       </div>
                     )}
 
                     <div className="mb-6">
                       <h3 className="text-lg font-black text-slate-900 mb-1 tracking-tight">
-                        {isCustom ? (isPremium ? "Full Development" : "Custom Feature") : (isPremium ? "Paket Premium" : "Paket Dasar")}
+                        {activeTab === "custom" ? "Paket Custom Website" : isPremium ? "Paket Premium" : "Paket Dasar"}
                       </h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">
-                          {isCustom ? "Contact Us" : (isPremium ? "Rp1.200.000" : "Rp800.000")}
+                          {activeTab === "custom" ? "Hubungi Kami" : isPremium ? "Rp1.200.000" : "Rp800.000"}
                         </span>
                       </div>
                     </div>
 
-                    <ul className="space-y-3 mb-16 flex-grow">
-                      {features.map((f, i) => (
+                    <ul className={`grid ${activeTab === "custom" ? "md:grid-cols-2 gap-x-8" : "grid-cols-1"} gap-y-3 mb-16 flex-grow`}>
+                      {features.map((f: string, i: number) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className={`mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${isPremium ? "bg-primary/10 text-primary" : "bg-slate-50 text-slate-300"}`}>
                             <Check size={10} strokeWidth={4} />
@@ -184,13 +186,13 @@ export const PricelistSection = () => {
                         active:translate-y-[1px] active:translate-x-[1px] active:shadow-none
                       `}
                     >
-                      {isCustom ? "Konsultasi" : "Order"} <ArrowUpRight size={16} strokeWidth={3} />
+                      {activeTab === "custom" ? "Konsultasi" : "Order"} <ArrowUpRight size={16} strokeWidth={3} />
                     </button>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </AnimatePresence>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
