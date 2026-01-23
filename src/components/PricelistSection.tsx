@@ -145,7 +145,7 @@ export const PricelistSection = () => {
                     {isPremium && (
                       <div className="absolute top-6 right-6">
                         <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase">
-                          <Star size={10} fill="currentColor" /> {activeTab === "custom" ? "Exclusive" : "Best Value"}
+                          <Star size={10} fill="currentColor" /> {activeTab === "custom" ? "CUSTOM" : "Best Value"}
                         </div>
                       </div>
                     )}
