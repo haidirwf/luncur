@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Check, Star, Rocket, Building2, Palmtree, ShoppingBag, ArrowUpRight } from "lucide-react";
+// Tambahkan Settings2 ke import lucide-react
+import { Check, Star, Rocket, Building2, Palmtree, ShoppingBag, ArrowUpRight, Settings2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const pricingData = {
@@ -19,6 +20,11 @@ const pricingData = {
     planA: ["Katalog Produk", "Desain Responsif", "Keranjang Belanja Basic", "Checkout via WhatsApp", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
     planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Keranjang Belanja Basic", "Checkout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
   },
+  // Opsi Baru: Custom Web
+  custom: {
+    planA: ["Request Fitur Khusus", "Arsitektur Skalabel", "Integrasi Third-party API", "Desain UI/UX Eksklusif", "Optimasi Performa Tinggi", "Technical Support 24/7", "Handover Source Code", "Dokumentasi Lengkap"],
+    planB: ["Sistem Informasi Custom", "Dashboard Admin Kompleks", "Automasi Bisnis", "Dedicated Cloud Hosting", "Keamanan Tingkat Tinggi", "Maintenance Maintenance 6 bln", "SLA Guarantee", "Prioritas Pengembangan"],
+  },
 };
 
 const tabs = [
@@ -26,6 +32,7 @@ const tabs = [
   { id: "company", label: "Company Profile", icon: Building2 },
   { id: "travel", label: "Travel & Tour", icon: Palmtree },
   { id: "toko", label: "Toko Online", icon: ShoppingBag },
+  { id: "custom", label: "Custom Web", icon: Settings2 }, // Tab Baru
 ];
 
 export const PricelistSection = () => {
@@ -50,13 +57,12 @@ export const PricelistSection = () => {
       <div className="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-blue-100/50 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 px-4 mx-auto">
-        {/* Header - Optimized Scale & Matched Badge */}
+        {/* Header */}
         <div className="text-center max-w-5xl mx-auto mb-8 px-4">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            /* Badge mengikuti gaya LayananSection: text-sm font-bold */
             className="inline-block px-4 py-1.5 mb-6 text-sm font-bold text-primary bg-primary/10 rounded-full"
           >
             Pricelist
@@ -81,13 +87,13 @@ export const PricelistSection = () => {
           </motion.p>
         </div>
 
-        {/* Tab Switcher */}
+        {/* Tab Switcher - Diubah menjadi flex-wrap agar muat banyak tab */}
         <div className="flex justify-center mb-10 px-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative grid grid-cols-2 md:flex gap-2 p-2 bg-white/70 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full w-full max-w-lg md:max-w-fit shadow-sm"
+            className="relative flex flex-wrap justify-center gap-2 p-2 bg-white/70 backdrop-blur-md border border-white rounded-[2rem] md:rounded-full w-full max-w-4xl shadow-sm"
           >
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -96,14 +102,14 @@ export const PricelistSection = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex items-center justify-center md:justify-start gap-2 px-4 py-3 md:px-5 md:py-2.5 rounded-2xl md:rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
+                  className={`relative flex items-center justify-center gap-2 px-4 py-3 md:px-5 md:py-2.5 rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
                     isActive ? "text-white" : "text-slate-500 hover:text-primary"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTabPricelist"
-                      className="absolute inset-0 bg-primary rounded-2xl md:rounded-full -z-10 shadow-lg shadow-primary/25"
+                      className="absolute inset-0 bg-primary rounded-full -z-10 shadow-lg shadow-primary/25"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -115,12 +121,13 @@ export const PricelistSection = () => {
           </motion.div>
         </div>
 
-        {/* Pricing Cards - Compact */}
+        {/* Pricing Cards */}
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-8">
             <AnimatePresence mode="wait">
               {["planA", "planB"].map((planKey, idx) => {
                 const isPremium = planKey === "planB";
+                const isCustom = activeTab === "custom";
                 const features = pricingData[activeTab][planKey];
 
                 return (
@@ -137,21 +144,20 @@ export const PricelistSection = () => {
                     {isPremium && (
                       <div className="absolute top-6 right-6">
                         <div className="flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase">
-                          <Star size={10} fill="currentColor" /> Best Value
+                          <Star size={10} fill="currentColor" /> {isCustom ? "Enterprise" : "Best Value"}
                         </div>
                       </div>
                     )}
 
                     <div className="mb-6">
                       <h3 className="text-lg font-black text-slate-900 mb-1 tracking-tight">
-                        {isPremium ? "Paket Premium" : "Paket Dasar"}
+                        {isCustom ? (isPremium ? "Full Development" : "Custom Feature") : (isPremium ? "Paket Premium" : "Paket Dasar")}
                       </h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter">
-                          {isPremium ? "Rp1.200.000" : "Rp800.000"}
+                          {isCustom ? "Contact Us" : (isPremium ? "Rp1.200.000" : "Rp800.000")}
                         </span>
                       </div>
-                      
                     </div>
 
                     <ul className="space-y-3 mb-16 flex-grow">
@@ -179,7 +185,7 @@ export const PricelistSection = () => {
                         active:translate-y-[1px] active:translate-x-[1px] active:shadow-none
                       `}
                     >
-                      Order <ArrowUpRight size={16} strokeWidth={3} />
+                      {isCustom ? "Konsultasi" : "Order"} <ArrowUpRight size={16} strokeWidth={3} />
                     </button>
                   </motion.div>
                 );
