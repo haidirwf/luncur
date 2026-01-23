@@ -8,16 +8,16 @@ const pricingData = {
     planB: ["1 Halaman + Sections Lengkap", "Custom Desain Premium", "Form + Integrasi WhatsApp", "Domain .com Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Optimasi Lengkap", "Free Maintenance 1 Bulan", "Revisi Fleksibel"],
   },
   company: {
-    planA: ["3-5 Halaman Website", "Desain Responsif", "Halaman About & Kontak", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL Gratis", "SEO Basic Setup", "2x Revisi Minor"],
-    planB: ["5-8 Halaman Custom", "Custom Desain Premium", "Blog/News Section", "Domain .com Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Optimasi Lengkap", "Free Maintenance 1 Bulan", "Revisi Fleksibel"],
+    planA: ["Bebas Halaman Website", "Desain Responsif", "Halaman About & Kontak", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL Gratis", "SEO Basic Setup", "2x Revisi Minor"],
+    planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Blog/News Section", "Domain .com Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Optimasi Lengkap", "Free Maintenance 1 Bulan", "Revisi Fleksibel"],
   },
   travel: {
-    planA: ["4-6 Halaman Website", "Desbit Responsif", "Galeri Destinasi", "Form Booking Sederhana", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
-    planB: ["8+ Halaman Custom", "Custom Desain Premium", "Katalog Paket Wisata", "Form Booking + WhatsApp", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Lengkap + Blog", "Free Maintenance 1 Bulan"],
+    planA: ["Bebas Halaman Website", "Desain Responsif", "Galeri Destinasi", "Form Booking Sederhana", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
+    planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Katalog Paket Wisata", "Form Booking + WhatsApp", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO Lengkap + Blog", "Free Maintenance 1 Bulan"],
   },
   toko: {
     planA: ["Katalog Produk", "Desain Responsif", "Keranjang Belanja Basic", "Checkout via WhatsApp", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
-    planB: ["Katalog Produk", "Custom Desain Premium", "Keranjang Belanja Basic", "Cehckout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
+    planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Keranjang Belanja Basic", "Checkout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
   },
 };
 
