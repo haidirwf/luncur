@@ -20,7 +20,6 @@ const pricingData = {
     planA: ["Katalog Produk", "Desain Responsif", "Keranjang Belanja Basic", "Checkout via WhatsApp", "Hosting Basic 1 Tahun", "Subdomain Gratis", "SSL + SEO Basic", "2x Revisi Minor"],
     planB: ["Semua benefit Paket Dasar", "Custom Desain Premium", "Keranjang Belanja Basic", "Checkout direct WhatsApp ", "Domain Gratis 1 Tahun", "Hosting Cepat 1 Tahun", "SSL + Security Extra", "SEO + Tracking", "Free Maintenance 1 Bulan"],
   },
-  // Opsi Baru: Custom Web
   custom: {
     planA: ["Request Fitur Khusus", "Arsitektur Skalabel", "Integrasi Third-party API", "Desain UI/UX Eksklusif", "Optimasi Performa Tinggi", "Technical Support 24/7", "Handover Source Code", "Dokumentasi Lengkap"],
     planB: ["Sistem Informasi Custom", "Dashboard Admin Kompleks", "Automasi Bisnis", "Dedicated Cloud Hosting", "Keamanan Tingkat Tinggi", "Maintenance Maintenance 6 bln", "SLA Guarantee", "Prioritas Pengembangan"],
