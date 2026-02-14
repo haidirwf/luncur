@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Luncur Site | Pembuatan Website Profesional & Terjangkau</title>
-
-  <meta name="description" content="Jasa pembuatan website profesional dan murah di Indonesia. Spesialis landing page, company profile, website UMKM, toko online, dan website bisnis. SEO friendly, cepat, dan modern." />
-
-  <meta name="keywords" content="
-    jasa pembuatan website,
-    jasa buat website,
-    jasa website murah,
-    jasa website profesional,
-    jasa web developer,
-    jasa web developer indonesia,
-    jasa pembuatan website bisnis,
-    jasa pembuatan website umkm,
-    jasa pembuatan landing page,
-    jasa landing page murah,
-    jasa website company profile,
-    jasa website toko online,
-    jasa website ecommerce,
-    jasa website wordpress,
-    jasa website custom,
-    pembuatan website cepat,
-    web developer terpercaya,
-    web developer indonesia,
-    website bisnis online,
-    website seo friendly,
-    website cepat dan aman
-  " />
-
-  <meta name="author" content="LuncurSite" />
+  
+  <!-- SEO Dasar: Title ideal 50-60 karakter, Desc 150-160 karakter -->
+  <title>Luncur Site | Jasa Pembuatan Website Profesional & Terjangkau</title>
+  <meta name="description" content="Tingkatkan bisnis Anda dengan website modern. Jasa pembuatan landing page, company profile, dan toko online murah, cepat, dan SEO friendly di Luncur Site." />
+  <meta name="author" content="Luncur Site" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://luncur.site" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://luncur.site/" />
+  <!-- Schema Markup: Memberi tahu Google bahwa ini adalah entitas bisnis Jasa -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Luncur Site",
+    "url": "https://luncur.site",
+    "logo": "https://luncur.sitelogo.svg",
+    "image": "https://luncur.siteog-image.png",
+    "description": "Jasa pembuatan website profesional untuk UMKM dan Bisnis di Indonesia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ID"
+    },
+    "priceRange": "Rp"
+  }
+  </script>
 
-  <!-- Fonts -->
+  <!-- Open Graph (Facebook/WhatsApp/LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luncur.site" />
+  <meta property="og:title" content="Luncur Site | Jasa Pembuatan Website Profesional" />
+  <meta property="og:description" content="Buat website bisnis, UMKM, dan toko online dengan desain modern dan performa tinggi." />
+  <meta property="og:image" content="https://luncur.siteog-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Luncur Site | Jasa Pembuatan Website Terpercaya" />
+  <meta name="twitter:description" content="Solusi pembuatan website murah dan cepat untuk pertumbuhan bisnis Anda." />
+  <meta name="twitter:image" content="https://luncur.siteog-image.png" />
+
+  <!-- Preconnect untuk Fonts (Mempercepat loading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://luncur.site/" />
-  <meta property="og:title" content="Jasa Pembuatan Website Profesional & Murah | LuncurSite" />
-  <meta property="og:description" content="Layanan pembuatan website profesional untuk bisnis, UMKM, dan personal. Landing page, company profile, toko online. SEO friendly & performa tinggi." />
-  <meta property="og:image" content="https://luncur.site/og-image.png" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jasa Pembuatan Website Profesional & Murah | LuncurSite" />
-  <meta name="twitter:description" content="Buat website bisnis, UMKM, dan toko online dengan desain modern, SEO friendly, dan cepat." />
-  <meta name="twitter:image" content="https://luncur.site/og-image.png" />
-
-  <!-- Icons -->
+  <!-- Favicon & Brand Color -->
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-
   <meta name="theme-color" content="#0E401B" />
 </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+  <!-- Root element untuk React/TypeScript -->
+  <div id="root"></div>
+
+  <!-- Main Entry Point -->
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Noscript untuk user yang mematikan JS (Bagus untuk aksesibilitas) -->
+  <noscript>Anda perlu mengaktifkan JavaScript untuk menjalankan aplikasi ini.</noscript>
+</body>
 </html>
