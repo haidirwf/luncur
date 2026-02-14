@@ -1,0 +1,31 @@
+{
+  "name": "Luncur Site - Jasa Pembuatan Website",
+  "short_name": "LuncurSite",
+  "description": "Jasa pembuatan website profesional untuk UMKM dan Bisnis di Indonesia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "web-development"],
+  "lang": "id",
+  "dir": "ltr"
+}
