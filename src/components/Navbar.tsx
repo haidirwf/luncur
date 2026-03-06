@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#kontak", label: "Kontak" },
 ];
 
-export const Navbar = () => { 
+export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -36,7 +36,7 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; 
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -49,13 +49,12 @@ export const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? "pt-4" : "pt-6 md:pt-8"}`}>
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           layout
-          className={`mx-auto max-w-6xl transition-all duration-500 rounded-[2rem] border ${
-            isScrolled 
-            ? "bg-white/80 backdrop-blur-xl border-slate-200/50 shadow-[0_8px_32px_-10px_rgba(0,0,0,0.08)] py-3 px-6" 
+          className={`mx-auto max-w-6xl transition-all duration-500 rounded-[2rem] border ${isScrolled
+            ? "bg-white/80 backdrop-blur-xl border-slate-200/50 shadow-[0_8px_32px_-10px_rgba(0,0,0,0.08)] py-3 px-6"
             : "bg-transparent border-transparent py-4 px-4"
-          }`}
+            }`}
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -65,13 +64,14 @@ export const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}
               className="group flex items-center gap-2"
+              aria-label="Kembali ke Beranda"
             >
               <div className="relative w-8 h-8 flex items-center justify-center transition-transform group-hover:rotate-12">
-                <img src="/logo.svg" alt="Logo" className="w-full h-full object-contain" />
+                <img src="/logo.svg" alt="LuncurSite Logo" fetchPriority="high" className="w-full h-full object-contain" />
               </div>
               <span className="font-black text-xl tracking-tighter text-slate-900">
                 luncur<span className="text-primary">site</span>
-              </span> 
+              </span>
             </motion.a>
 
             {/* Desktop Navigation - Sliding Pill Animation */}
@@ -82,9 +82,8 @@ export const Navbar = () => {
                   <button
                     key={link.href}
                     onClick={() => handleNavClick(link.href)}
-                    className={`relative px-5 py-2 text-sm font-bold transition-colors duration-300 z-10 ${
-                      isActive ? "text-primary" : "text-slate-500 hover:text-slate-900"
-                    }`}
+                    className={`relative px-5 py-2 text-sm font-bold transition-colors duration-300 z-10 ${isActive ? "text-primary" : "text-slate-500 hover:text-slate-900"
+                      }`}
                   >
                     {isActive && (
                       <motion.div
@@ -116,6 +115,8 @@ export const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-100 rounded-xl text-slate-900"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
+              aria-expanded={isMobileMenuOpen}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -125,7 +126,7 @@ export const Navbar = () => {
                   exit={{ opacity: 0, rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                  {isMobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
                 </motion.div>
               </AnimatePresence>
             </motion.button>
@@ -151,11 +152,10 @@ export const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
                   onClick={() => handleNavClick(link.href)}
-                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold transition-all ${
-                    activeSection === link.href.substring(1)
-                      ? "bg-primary text-white shadow-lg shadow-primary/20"
-                      : "bg-slate-50 text-slate-500"
-                  }`}
+                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold transition-all ${activeSection === link.href.substring(1)
+                    ? "bg-primary text-white shadow-lg shadow-primary/20"
+                    : "bg-slate-50 text-slate-500"
+                    }`}
                 >
                   {link.label}
                   <ArrowUpRight size={18} className={activeSection === link.href.substring(1) ? "opacity-100" : "opacity-30"} />

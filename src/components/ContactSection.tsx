@@ -60,6 +60,7 @@ export const ContactSection = () => {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Hubungi via ${item.title}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -68,7 +69,7 @@ export const ContactSection = () => {
             >
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className={`w-2.5 h-2.5 rounded-full animate-pulse ${item.themeColor}`} />
+                  <div className={`w-2.5 h-2.5 rounded-full animate-pulse ${item.themeColor}`} aria-hidden="true" />
                   <span className="text-xs font-black tracking-widest uppercase text-slate-400">
                     {item.label}
                   </span>
@@ -92,12 +93,13 @@ export const ContactSection = () => {
                   md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-hover:-rotate-2
                   transition-all duration-500 z-20
                 `}
+                aria-hidden="true"
               >
                 {item.cta} <ArrowUpRight size={18} strokeWidth={3} />
               </div>
 
               {/* Ghost Icon - Lebih subtle */}
-              <item.icon className="absolute top-10 right-10 text-slate-100 group-hover:text-slate-200 transition-colors" size={100} strokeWidth={1.5} />
+              <item.icon className="absolute top-10 right-10 text-slate-100 group-hover:text-slate-200 transition-colors" size={100} strokeWidth={1.5} aria-hidden="true" />
             </motion.a>
           ))}
         </div>
@@ -107,6 +109,7 @@ export const ContactSection = () => {
           href="https://wa.me/6282173662010"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Hubungi via WhatsApp untuk konsultasi cepat"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,7 +117,7 @@ export const ContactSection = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-              <div className="w-20 h-20 rounded-[1.5rem] bg-primary flex items-center justify-center text-white transform group-hover:rotate-6 transition-transform shadow-lg shadow-primary/20">
+              <div className="w-20 h-20 rounded-[1.5rem] bg-primary flex items-center justify-center text-white transform group-hover:rotate-6 transition-transform shadow-lg shadow-primary/20" aria-hidden="true">
                 <MessageCircle size={36} fill="white" />
               </div>
               <div>
@@ -127,13 +130,13 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="px-10 py-5 bg-white text-slate-900 font-black rounded-2xl flex items-center gap-2 transition-all group-hover:scale-105 group-hover:bg-primary group-hover:text-white shadow-xl">
+            <div className="px-10 py-5 bg-white text-slate-900 font-black rounded-2xl flex items-center gap-2 transition-all group-hover:scale-105 group-hover:bg-primary group-hover:text-white shadow-xl" aria-hidden="true">
               Hubungi Sekarang <ArrowUpRight size={20} strokeWidth={3} />
             </div>
           </div>
-          
+
           {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
+          <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" aria-hidden="true" />
         </motion.a>
       </div>
     </section>

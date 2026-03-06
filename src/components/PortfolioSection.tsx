@@ -41,10 +41,10 @@ export const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-20 bg-white overflow-hidden font-sans">
       <div className="container mx-auto px-4">
-        
+
         {/* Header */}
         <div className="mb-12 px-2">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -57,17 +57,17 @@ export const PortfolioSection = () => {
 
         {/* Carousel */}
         <div className="relative">
-          <div 
-            ref={scrollRef} 
-            onScroll={handleScroll} 
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
             className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto pb-10 snap-x snap-mandatory hide-scrollbar px-2"
           >
             {portfolios.map((item, index) => (
               <div key={index} className="min-w-[85%] sm:min-w-[48%] lg:min-w-full snap-center group">
                 {/* Image Wrap */}
                 <div className="relative aspect-video mb-6 overflow-hidden rounded-[2rem] bg-slate-100 border border-slate-100">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -83,25 +83,27 @@ export const PortfolioSection = () => {
                       {item.title}
                     </h3>
                   </div>
-                  
-                  <a 
+
+                  <a
                     href={item.link}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Lihat project ${item.title}`}
                     className="flex items-center justify-center w-12 h-12 rounded-2xl bg-slate-900 text-white hover:bg-primary transition-colors shadow-lg shadow-slate-200"
                   >
-                    <ArrowUpRight size={22} strokeWidth={2.5} />
+                    <ArrowUpRight size={22} strokeWidth={2.5} aria-hidden="true" />
                   </a>
                 </div>
               </div>
             ))}
           </div>
-            
+
           {/* Indicators */}
           <div className="flex lg:hidden justify-center gap-2 mt-4">
             {portfolios.map((_, i) => (
-              <div 
-                key={i} 
-                className={`h-1 rounded-full transition-all ${activeIndex === i ? "w-8 bg-primary" : "w-2 bg-slate-200"}`} 
+              <div
+                key={i}
+                className={`h-1 rounded-full transition-all ${activeIndex === i ? "w-8 bg-primary" : "w-2 bg-slate-200"}`}
               />
             ))}
           </div>

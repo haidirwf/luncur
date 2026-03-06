@@ -58,7 +58,7 @@ export const PricelistSection = () => {
       <div className="container relative z-10 px-4 mx-auto">
         {/* Header */}
         <div className="text-center max-w-5xl mx-auto mb-8 px-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -66,8 +66,8 @@ export const PricelistSection = () => {
           >
             Pricelist
           </motion.span>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -76,7 +76,7 @@ export const PricelistSection = () => {
             Investasi <span className="text-primary">Masa Depan.</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -88,7 +88,7 @@ export const PricelistSection = () => {
 
         {/* Tab Switcher */}
         <div className="flex justify-center mb-10 px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -101,9 +101,11 @@ export const PricelistSection = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${
-                    isActive ? "text-white" : "text-slate-500 hover:text-primary"
-                  }`}
+                  role="tab"
+                  aria-label={`Pilih paket ${tab.label}`}
+                  aria-selected={isActive}
+                  className={`relative flex items-center justify-center gap-2 px-4 py-2.5 rounded-full font-bold text-xs md:text-sm transition-colors duration-300 z-10 ${isActive ? "text-white" : "text-slate-500 hover:text-primary"
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -112,7 +114,7 @@ export const PricelistSection = () => {
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  <Icon size={16} className="shrink-0" />
+                  <Icon size={16} className="shrink-0" aria-hidden="true" />
                   <span className="whitespace-nowrap">{tab.label}</span>
                 </button>
               );
@@ -138,9 +140,8 @@ export const PricelistSection = () => {
                 return (
                   <div
                     key={`${activeTab}-${planKey}`}
-                    className={`w-full group relative bg-white rounded-[2rem] p-7 lg:p-9 border transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 flex flex-col ${
-                      isPremium ? "border-primary/30" : "border-slate-100 shadow-sm"
-                    }`}
+                    className={`w-full group relative bg-white rounded-[2rem] p-7 lg:p-9 border transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/40 flex flex-col ${isPremium ? "border-primary/30" : "border-slate-100 shadow-sm"
+                      }`}
                   >
                     {isPremium && (
                       <div className="absolute top-6 right-6">
