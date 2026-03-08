@@ -30,10 +30,10 @@ export const LayananSection = () => {
   return (
     <section id="layanan" className="py-20 bg-white overflow-hidden font-sans">
       <div className="container mx-auto px-4">
-        
+
         {/* Header - Aligned Center to match Pricelist */}
         <div className="text-center max-w-5xl mx-auto mb-16 px-4">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,8 +41,8 @@ export const LayananSection = () => {
           >
             Our Expertise
           </motion.span>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,7 +51,7 @@ export const LayananSection = () => {
             Pilihan <span className="text-primary">Layanan.</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -63,28 +63,28 @@ export const LayananSection = () => {
 
         {/* Horizontal Scroll / Grid Layout */}
         <div className="relative">
-          <div 
-            ref={scrollRef} 
-            onScroll={handleScroll} 
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
             className="flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto pb-14 snap-x snap-mandatory hide-scrollbar scroll-smooth px-2"
           >
             {layanan.map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="min-w-[85%] sm:min-w-[45%] lg:min-w-full snap-center relative p-8 md:p-10 rounded-[3rem] border border-slate-100 bg-[#FBFBFC] hover:bg-white transition-all duration-500 flex flex-col hover:shadow-2xl hover:shadow-slate-200/50 group"
               >
                 <div className={`w-14 h-14 rounded-2xl ${item.iconBg} ${item.iconColor} flex items-center justify-center mb-8 transition-transform group-hover:rotate-6`}>
                   <item.icon size={28} />
                 </div>
-                
+
                 <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">
                   {item.title}
                 </h3>
-                
+
                 <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-grow font-medium">
                   {item.description}
                 </p>
-                
+
                 <div className="space-y-3 pt-6 mb-16 border-t border-slate-100">
                   {item.features.map((f, i) => (
                     <div key={i} className="flex items-center gap-2 text-[12px] font-bold text-slate-400">
@@ -93,22 +93,23 @@ export const LayananSection = () => {
                   ))}
                 </div>
 
-                <button 
-                  onClick={() => goToPricelist(item.id)} 
+                <button
+                  onClick={() => goToPricelist(item.id)}
                   className="absolute bottom-8 right-8 bg-slate-900 text-white px-7 py-4 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-[6px_6px_0px_0px_rgba(15,23,42,0.1)] hover:bg-primary transition-all active:translate-y-[2px] active:shadow-none"
+                  aria-label={`Cek harga untuk paket ${item.title}`}
                 >
-                  Cek Harga <ArrowUpRight size={18} strokeWidth={3} />
+                  Cek Harga <ArrowUpRight size={18} strokeWidth={3} aria-hidden="true" />
                 </button>
               </div>
             ))}
           </div>
-            
+
           {/* Mobile Indicators */}
           <div className="flex lg:hidden justify-center gap-2 mt-2">
             {layanan.map((_, i) => (
-              <div 
-                key={i} 
-                className={`h-1.5 rounded-full transition-all ${activeIndex === i ? "w-6 bg-primary" : "w-1.5 bg-slate-200"}`} 
+              <div
+                key={i}
+                className={`h-1.5 rounded-full transition-all ${activeIndex === i ? "w-6 bg-primary" : "w-1.5 bg-slate-200"}`}
               />
             ))}
           </div>

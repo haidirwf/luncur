@@ -50,7 +50,7 @@ export const AboutSection = () => {
 
       <div className="container px-6 mx-auto relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
-          
+
           {/* Sisi Kiri: Narasi Jasa Website - Judul Tetap Kiri */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <motion.div
@@ -76,7 +76,7 @@ export const AboutSection = () => {
 
               {/* Komitmen Card - Styled more like the feature cards */}
               <div className="flex items-start gap-5 p-7 bg-white rounded-[2rem] border border-slate-100 shadow-sm border-l-4 border-l-primary">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0" aria-hidden="true">
                   <ShieldCheck size={24} />
                 </div>
                 <div>
@@ -101,7 +101,7 @@ export const AboutSection = () => {
                   transition={{ delay: index * 0.1 }}
                   className="p-8 md:p-10 rounded-[3rem] border border-slate-100 bg-white transition-all duration-500 group hover:shadow-2xl hover:shadow-slate-200/50 flex flex-col"
                 >
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-6 ${value.iconBg} ${value.iconColor}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:rotate-6 ${value.iconBg} ${value.iconColor}`} aria-hidden="true">
                     <value.icon size={28} strokeWidth={2} />
                   </div>
 
@@ -114,16 +114,16 @@ export const AboutSection = () => {
                   </p>
                 </motion.div>
               ))}
-              
+
               {/* Kartu CTA Final - Match CTA Style */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 onClick={scrollToContact}
                 className="flex flex-col justify-center items-center p-8 rounded-[3rem] border-2 border-dashed border-primary/20 bg-primary/[0.02] group hover:border-primary/50 hover:bg-primary/[0.05] transition-all cursor-pointer min-h-[250px] active:scale-[0.98]"
               >
-                <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all mb-4">
+                <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all mb-4" aria-hidden="true">
                   <ArrowUpRight size={32} strokeWidth={2.5} />
                 </div>
                 <div className="text-center">
